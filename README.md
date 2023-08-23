@@ -6,7 +6,8 @@ Anyway there is an install.sh script that installs all the needed packages.
 After that one should restart and run i3 for the first time, creating the ncessary config etc.
 Then one needs to copy contents of this i3 file to ./config such as:
 
-cp -r i3 ./config
+cp -r i3 ~/.config
+cp i3blocks.conf ~/.i3blocks.conf
 
 Then restart i3 or just log out and in again.
 And that should be it.
