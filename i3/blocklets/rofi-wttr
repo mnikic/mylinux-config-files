@@ -9,7 +9,6 @@ BAR_POSITION="${BAR_POSITION:-bottom}"
 
 ###### Variables ######
 
-
 ###### Functions ######
 # print the full weather
 # see https://github.com/chubin/wttr.in#usage for full configuration options
@@ -65,7 +64,6 @@ case "$BLOCK_BUTTON" in
 esac
 
 # print blocklet text
-
 if [[ $LABEL != " " ]]; then
   echo $LABEL$(print_weather_line)
 else

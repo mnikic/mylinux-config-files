@@ -1,13 +1,13 @@
-These are some of my file needed to make a working i3 destop on debian minimal. Tested on Debian 12.1
+These are some of my file needed to make a working i3 destop on arch. Tested on Arch installed in August 2023.
 
-Not all of the i3 blocklets that are there are used actually. Couldn't yet get the wifi, and ssid to work, also rofi-calendar has some dependancy that i don't have, so it looks weird.
+Not all of the i3 blocklets that are there are used actually, and there is a c compiled file cpu_usage2 that is executable but doesn't have an extension so i didn't know how to exclude it.
+There is also a minor issue with the volume icon in the tray when the system is starting (not sure why yet).
+So yeah, work in progress.
 
-Anyway there is an install.sh script that installs all the needed packages. 
-After that one should restart and run i3 for the first time, creating the ncessary config etc.
-Then one needs to copy contents of this i3 file to ./config such as:
+If on arch i believe that invoking:
 
-cp -r i3 ~/.config
-cp i3blocks.conf ~/.i3blocks.conf
+sudo sh install-arch.sh
 
-Then restart i3 or just log out and in again.
+will do everything needed.
+Then restart i3 (win+shift+r) or just log out and in again.
 And that should be it.
