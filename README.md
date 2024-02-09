@@ -1,10 +1,9 @@
-These are some of my file needed to make a working i3 destop on arch. Tested on Arch installed in August 2023.
-
-Not all of the i3 blocklets that are there are used actually, and there is a c compiled file cpu_usage2 that is executable but doesn't have an extension so i didn't know how to exclude it.
-There is also a minor issue with the volume icon in the tray when the system is starting (not sure why yet).
-So yeah, work in progress.
+These are some of my file needed to make a working i3 version of my destop on arch. Tested on Arch installed in August 2023.
+It is still a work in progress. (there is package for locking that is manually installed so not available via pacman, there are some grub settings that are not here, some spash screens etc). Yet its a functional (but minimal) desktop.
 
 If on arch i believe that invoking:
+
+!!Warning!! this will all the packages inside pkglist.txt that are not already installed. It will answer "yes" to all prompts by pacman. Do this with care, maybe even have a system snapshot (or timeshift point) before this.
 
 sudo sh install-arch.sh
 

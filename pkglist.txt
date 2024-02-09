@@ -1,21 +1,17 @@
 acpi
 alacritty
 alsa-utils
-amd-ucode
 arc-gtk-theme
-base
 base-devel
 blueman
 bluez-utils
 dmenu
 dmidecode
-efibootmgr
 feh
 firefox
 fuse2
 git
 gobject-introspection
-grub
 helvum
 htop
 i3-wm
@@ -27,9 +23,6 @@ keepass
 lightdm
 lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
-linux
-linux-firmware
-linux-lts
 lxappearance
 man-db
 maven
@@ -65,3 +58,4 @@ xfce4-terminal
 xidlehook
 xorg-xrandr
 xss-lock
+xclip
