@@ -33,7 +33,7 @@ if [[ -z "$MIXER" ]] ; then
     [ -n "$(lsmod | grep jack)" ] && MIXER="jackplug"
     MIXER="${2:-$MIXER}"
 fi
-
+#echo "MIxer is $MIXER"
 # The instance option sets the control to report and configure
 # This defaults to the first control of your selected mixer
 # For a list of the available, use `amixer -D $Your_Mixer scontrols`
@@ -43,7 +43,7 @@ if [[ -z "$SCONTROL" ]] ; then
                       head -n1
                     )}"
 fi
-
+#echo "Control is $SCONTROL"
 # The first parameter sets the step to change the volume by (and units to display)
 # This may be in in % or dB (eg. 5% or 3dB)
 if [[ -z "$STEP" ]] ; then
@@ -57,7 +57,7 @@ NATURAL_MAPPING=${NATURAL_MAPPING:-0}
 if [[ "$NATURAL_MAPPING" != "0" ]] ; then
     AMIXER_PARAMS="-M"
 fi
-
+#echo "STEP = $STEP, MAPPING=$NATURAL_MAPPING amixer_param=$AMIXER_PARAMS"
 #------------------------------------------------------------------------
 
 capability() { # Return "Capture" if the device is a capture device
@@ -70,14 +70,27 @@ volume() {
 }
 
 format() {
-  
-  perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
-  perl_filter+='{CORE::say $4 eq "off" ? "MUTE" : "'
+  mute=$(pactl list sinks | grep -E 'Mute' | cut -d':' -f2)
+  pipe=$(pactl list sinks | grep '^[[:space:]]Volume:' | \
+  	      head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,')
+  #perl_filter='if (/.*\[(\d+%)\] (\[(-?\d+.\d+dB)\] )?\[(on|off)\]/)'
+  #perl_filter+='{CORE::say $4 eq "off" ? "MUTE" : "'
   # If dB was selected, print that instead
-  perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
-  perl_filter+='"; exit}'
-  output=$(perl -ne "$perl_filter")
-  echo "$LABEL$output"
+  #perl_filter+=$([[ $STEP = *dB ]] && echo '$3' || echo '$1')
+  #perl_filter+='"; exit}'
+  #output=$(perl -ne "$perl_filter")
+  yes=" yes"
+  if [[ "${mute}" == "${yes}" ]] 
+    then echo "  "
+  else
+    if [[ $pipe -gt 69 ]] 
+        then echo "  $pipe"
+      elif [[ $pipe -gt 19 ]]
+        then echo " $pipe"
+      else 
+        echo "$LABEL $pipe"
+    fi
+  fi
 }
 
 #------------------------------------------------------------------------

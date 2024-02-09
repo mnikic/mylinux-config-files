@@ -3,7 +3,7 @@
 option=`echo -e "suspend\nlock screen\nlogout\nreboot\npoweroff\nKill user $USER" | rofi -width 600 -dmenu -p system`
 case $option in
     suspend)
-        /usr/bin/systemctl suspend
+        usr/bin/systemctl suspend
         ;;
     'lock screen')
         i3lock -i /home/loshmi/Pictures/lock.png
