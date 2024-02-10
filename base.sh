@@ -24,6 +24,6 @@ usermod -aG wheel loshmi
 
 echo "loshmi ALL=(ALL) ALL" >> /etc/sudoers.d/loshmi
 RED=$(tput setaf 1)
-printf "${RED}Deed to change loshmi's password in order to be able to log in!!!\e[0m\n"
+printf "${RED}Need to change loshmi's password in order to be able to log in!!!\e[0m\n"
 echo "$(passwd loshmi)"
 printf "\e[1;32mDone! Type exit, umount -a and reboot.\e[0m\n"
