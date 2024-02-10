@@ -12,7 +12,7 @@ xidlehook \
     'xrandr --output "$PRIMARY_DISPLAY" --brightness .1' \
     'xrandr --output "$PRIMARY_DISPLAY" --brightness 1' \
   --timer 180 \
-    'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; i3lock -i /home/loshmi/Pictures/lock.png' \
+    'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; i3lock -i $HOME/Pictures/lock.png' \
     '' \
   --timer 600 \
     'systemctl suspend' \

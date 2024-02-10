@@ -7,7 +7,7 @@ And get the time, locale, basic installation of i3, xorg, users and the boot loa
 
 After loging in, I believe that invoking:
 
-!!Warning!! this will all the packages inside pkglist.txt that are not already installed. It will answer "yes" to all prompts by pacman. Do this with care, maybe even have a system snapshot (or timeshift point) before this.
+!!Warning!! This will install all the packages inside pkglist.txt that are not already installed. It will answer "yes" to all prompts by pacman. Do this with care, maybe even have a system snapshot (or timeshift point) before this is executed.
 
 sudo sh install-arch.sh
 
