@@ -8,7 +8,7 @@ echo "arch" >> /etc/hostname
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 
-pacman -S grub efibootmgr networkmanager network-manager-applet xorg xorg-server xorg-xinit i3-wm i3blocks i3lock lightdm lightdm-gtk-greeter dialog wpa_supplicant base-devel linux-headers linux-lts linux-lts-headers xdg-user-dirs xdg-utils alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync reflector acpi acpi_call terminus-font xclip
+pacman -S grub efibootmgr networkmanager network-manager-applet xorg xorg-server xorg-xinit i3-wm i3blocks i3lock lightdm lightdm-gtk-greeter dialog wpa_supplicant base-devel linux-headers linux-lts linux-lts-headers xdg-user-dirs xdg-utils alsa-utils pipewire pipewire-alsa pipewire-pulse pipewire-jack bash-completion openssh rsync reflector acpi acpi_call terminus-font xclip xterm alacritty dmenu
 
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB #change the directory to /boot/efi is you mounted the EFI partition at /boot/efi
 
@@ -21,6 +21,10 @@ systemctl enable lightdm.service
 
 useradd -m loshmi
 usermod -aG wheel loshmi
+
+cp Pictures/city-above.jpg /usr/share/pixmaps
+cp Pictures/archlinux-icon-crystal-64.svg /usr/share/pixmaps
+cp lightdm-gtk-greeter.conf /etc/lightdm/
 
 echo "loshmi ALL=(ALL) ALL" >> /etc/sudoers.d/loshmi
 RED=$(tput setaf 1)
