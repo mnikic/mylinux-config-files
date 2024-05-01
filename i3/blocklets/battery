@@ -41,19 +41,19 @@ END {
 	if (state == "charging")
         label = ""
 	else if (percentage == "100%")
-		label = ""
+		label = " "
 	else if (percentage > 99)
-		label = ""
+		label = " "
 	else if (percentage > 75)
-		label = ""
+		label = " "
 	else if (percentage > 50)
-		label = ""
+		label = " "
 	else if (percentage > 25)
-		label = ""
+		label = " "
     else if (percentage > 10) 
-		label = ""
+		label = " "
     else if (percentage > 55)  
-		label = ""
+		label = " "
 	
     # full text & "$@" > /dev/null;
     print label " " percentage
